@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
       data=>{console.log(data);this._router.navigate(['/login']);},
       error=>console.error(error)
     )
-    console.log.apply(JSON.stringify(this.registerForm.value));
+
   }
 
 }

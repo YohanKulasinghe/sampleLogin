@@ -10,7 +10,7 @@ export class UserService {
 
 
   register(body:any){
-    return this._http.post('http://127.0.0.1:3000/users/egister',body,{
+    return this._http.post('http://127.0.0.1:3000/users/register',body,{
       observe:'body',
       headers: new HttpHeaders().append('Content-Type','application/json')
     });
