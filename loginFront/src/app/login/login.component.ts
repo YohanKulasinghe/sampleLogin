@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +9,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  loginForm : FormGroup = new FormGroup({
+    email:new FormControl(null,[Validators.email,Validators.required]),
+    password:new FormControl(null,Validators.required)
+  })
   constructor(private _router:Router) { }
 
   ngOnInit(): void {
@@ -15,6 +20,15 @@ export class LoginComponent implements OnInit {
 
   moveToRegister(){
     this._router.navigate(['/register']);
+  }
+
+  login(){
+    if(!this.loginForm.valid){
+      console.log('Invalid');
+      return;
+    }
+
+    console.log(JSON.stringify(this.loginForm.value));
   }
 
 }
