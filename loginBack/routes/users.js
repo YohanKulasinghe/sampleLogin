@@ -32,7 +32,6 @@ async function addToDB(req,res){
 
 
 router.post('/login',function(req,res,next){
-  console.log('in log')
 
   passport.authenticate('local', function(err, user, info) {
     if (err) { return res.status(501).json(info); }
